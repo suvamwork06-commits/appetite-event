@@ -7,6 +7,7 @@ import { LuxeButton, LuxeLink } from "@/components/luxe/LuxeButton";
 import { Counter } from "@/components/luxe/Counter";
 import { Marquee } from "@/components/luxe/Marquee";
 import { useQuote } from "@/components/luxe/QuoteModal";
+import { Portfolio, Testimonials } from "@/components/luxe/ShowcaseSections";
 import { ServiceLogo } from "@/components/luxe/ServiceLogo";
 import { brand, images, stats, trustedBy } from "@/lib/content";
 
@@ -35,6 +36,8 @@ function Index() {
       <Hero />
       <Concierge />
       <TrustStrip />
+      <Portfolio />
+      <Testimonials />
       <Numbers />
     </>
   );

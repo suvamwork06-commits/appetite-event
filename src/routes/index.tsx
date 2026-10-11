@@ -240,7 +240,8 @@ function ChoiceCard({
 function TrustStrip() {
   return (
     <section className="border-y border-border bg-surface py-14">
-      <Marquee items={trustedBy} />
+      <p className="eyebrow mb-9 text-center">A Legacy of Celebrations</p>
+      <Marquee items={trustedBy} gold />
     </section>
   );
 }
@@ -251,22 +252,7 @@ function Numbers() {
   return (
     <section className="relative overflow-hidden bg-background py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid gap-12 border-y border-border py-14 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.1}>
-              <div className="text-center lg:text-left">
-                <p className="font-display text-[clamp(3rem,6vw,4.75rem)] leading-none gold-text">
-                  <Counter value={s.value} suffix={s.suffix} />
-                </p>
-                <p className="mt-4 text-[0.68rem] tracking-[0.28em] text-muted-foreground uppercase">
-                  {s.label}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="mt-20 flex flex-col items-center gap-8 text-center">
+        <div className="flex flex-col items-center gap-8 text-center">
           <Reveal>
             <h2 className="max-w-2xl text-[clamp(2rem,4.4vw,3.5rem)] leading-[1.08] text-ivory">
               Let's create something extraordinary

@@ -239,9 +239,11 @@ function ChoiceCard({
 
 function TrustStrip() {
   return (
-    <section className="border-y border-border bg-surface py-14">
-      <p className="eyebrow mb-9 text-center">A Legacy of Celebrations</p>
-      <Marquee items={trustedBy} gold />
+    <section className="bg-background pt-16">
+      <p className="eyebrow mb-8 text-center">A Legacy of Celebrations</p>
+      <div className="border-y border-border bg-surface py-14">
+        <Marquee items={trustedBy} gold />
+      </div>
     </section>
   );
 }

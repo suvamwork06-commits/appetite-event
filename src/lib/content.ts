@@ -171,20 +171,17 @@ export const portfolio = [
 
 export const stats = [
   { value: 500, suffix: "+", label: "Events Produced" },
-  { value: 200, suffix: "+", label: "Luxury Weddings" },
-  { value: 100, suffix: "+", label: "Corporate Clients" },
-  { value: 15, suffix: "+", label: "Years of Craft" },
+  { value: 200, suffix: "+", label: "Corporate Events" },
+  { value: 100, suffix: "+", label: "Luxury Weddings" },
+  { value: 15, suffix: "+", label: "Years of Trust" },
 ];
 
+/** Revolving milestones strip on the home page. */
 export const trustedBy = [
-  "Taj Palaces",
-  "Four Seasons",
-  "Aman Resorts",
-  "The Oberoi",
-  "Rolls-Royce",
-  "Moët Hennessy",
-  "Cartier",
-  "Vogue Weddings",
+  "500+ Events Produced",
+  "200+ Corporate Events",
+  "100+ Luxury Weddings",
+  "15+ Years of Trust",
 ];
 
 export const testimonials = [

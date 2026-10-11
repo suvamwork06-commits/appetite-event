@@ -240,7 +240,6 @@ function ChoiceCard({
 function TrustStrip() {
   return (
     <section className="border-y border-border bg-surface py-14">
-      <p className="eyebrow mb-9 text-center">As Trusted By</p>
       <Marquee items={trustedBy} />
     </section>
   );

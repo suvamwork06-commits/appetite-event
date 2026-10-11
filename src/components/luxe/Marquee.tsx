@@ -1,4 +1,4 @@
-export function Marquee({ items }: { items: string[] }) {
+export function Marquee({ items, gold = false }: { items: string[]; gold?: boolean }) {
   const doubled = [...items, ...items];
   return (
     <div
@@ -12,7 +12,11 @@ export function Marquee({ items }: { items: string[] }) {
         {doubled.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="font-display text-2xl whitespace-nowrap text-muted-foreground/70 transition-colors duration-500 hover:text-gold"
+            className={
+              gold
+                ? "font-display text-2xl whitespace-nowrap text-gold"
+                : "font-display text-2xl whitespace-nowrap text-muted-foreground/70 transition-colors duration-500 hover:text-gold"
+            }
           >
             {item}
           </span>

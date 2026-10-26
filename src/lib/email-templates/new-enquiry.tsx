@@ -173,7 +173,7 @@ export const template = {
   previewData: {
     name: "Ananya Roy",
     email: "ananya@example.com",
-    phone: "+91 98300 00000",
+    phone: "+91 98311 52888",
     event_type: "Luxury Wedding",
     event_date: "2027-02-14",
     guests: "350",

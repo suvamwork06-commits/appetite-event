@@ -1,13 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowUpRight, Quote, Star } from "lucide-react";
 import { Reveal, RevealLines } from "@/components/luxe/Reveal";
 import { SectionHeading } from "@/components/luxe/SectionHeading";
 import { LuxeButton } from "@/components/luxe/LuxeButton";
 import { Counter } from "@/components/luxe/Counter";
 import { Marquee } from "@/components/luxe/Marquee";
-import { Lightbox } from "@/components/luxe/Lightbox";
 import { useQuote } from "@/components/luxe/QuoteModal";
 import { ServiceLogo } from "@/components/luxe/ServiceLogo";
 import { Portfolio, Testimonials } from "@/components/luxe/ShowcaseSections";
@@ -22,7 +20,6 @@ import {
   brand,
   images,
   instagramFeed,
-  portfolio,
   services,
   stats,
   testimonials,

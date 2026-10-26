@@ -51,9 +51,9 @@ export const brand = {
   name: "Ambient & Appetite",
   monogram: "A&A",
   tagline: "Luxury Event Atelier",
-  phone: "+91 98300 00000",
-  phoneHref: "tel:+919830000000",
-  whatsapp: "918617285182",
+  phone: "+91 98311 52888",
+  phoneHref: "tel:+919831152888",
+  whatsapp: "919831152888",
   email: "info@appetiteevent.com",
   address: "The Atelier, 21 Camac Street, Kolkata 700016, India",
   hours: [
@@ -167,6 +167,15 @@ export const portfolio = [
   { title: "House of Silk", category: "Fashion Show", image: portfolio6 },
   { title: "Orchid Pavilion", category: "Luxury Decor", image: cardEvents },
   { title: "The Chef's Table", category: "Catering", image: cardCatering },
+];
+
+/** Smaller rotating service-category cards used in the Portfolio section. */
+export const serviceShowcase = [
+  { title: "Luxurious Weddings", images: [portfolio1, portfolio3, heroWedding] },
+  { title: "Corporate Events", images: [portfolio2, portfolio4] },
+  { title: "Birthday Parties", images: [portfolio5, about2, about3] },
+  { title: "Floral & Decor", images: [ctaFloral, cardEvents] },
+  { title: "Catering Services", images: [cardCatering, menuLive, menuDessert] },
 ];
 
 export const stats = [

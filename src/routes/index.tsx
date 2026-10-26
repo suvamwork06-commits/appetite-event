@@ -97,8 +97,10 @@ function Hero() {
           <RevealLines text="Extraordinary Experiences" />
         </h1>
         <Reveal delay={0.35}>
-          <p className="mx-auto mt-9 max-w-xl text-[0.98rem] leading-[1.95] text-muted-foreground">
-            Crafting timeless celebrations with precision, elegance and artistry.
+          <p className="mx-auto mt-10 max-w-3xl font-display text-[clamp(1.35rem,2.6vw,2.1rem)] italic leading-[1.45] text-ivory/90">
+            Where timeless celebrations, couture décor and exquisite cuisine are composed with
+            quiet precision, refined elegance and unmistakable{" "}
+            <span className="text-gold">artistry</span>.
           </p>
         </Reveal>
         <Reveal delay={0.5}>

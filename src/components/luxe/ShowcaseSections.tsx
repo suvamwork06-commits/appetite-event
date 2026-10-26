@@ -60,7 +60,7 @@ export function Portfolio() {
         <SectionHeading eyebrow="Portfolio" title="Selected celebrations" />
 
         <Carousel setApi={setApi} opts={{ align: "start", loop: true }} className="mt-16 md:mt-24">
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-3">
             {serviceShowcase.map((c, i) => (
               <CarouselItem key={c.title} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/5">
                 <button

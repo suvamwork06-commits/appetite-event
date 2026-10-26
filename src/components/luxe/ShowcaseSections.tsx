@@ -22,7 +22,7 @@ function RotatingImages({ images, interval = 2800 }: { images: string[]; interva
   }, [images.length, interval]);
 
   return (
-    <div className="relative aspect-3/4 overflow-hidden">
+    <div className="relative aspect-square overflow-hidden">
       {images.map((src, i) => (
         <img
           key={src}
@@ -60,9 +60,9 @@ export function Portfolio() {
         <SectionHeading eyebrow="Portfolio" title="Selected celebrations" />
 
         <Carousel setApi={setApi} opts={{ align: "start", loop: true }} className="mt-16 md:mt-24">
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-3">
             {serviceShowcase.map((c, i) => (
-              <CarouselItem key={c.title} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={c.title} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/5">
                 <button
                   onClick={() => {
                     setCardIndex(i);
@@ -72,14 +72,14 @@ export function Portfolio() {
                   className="group relative block w-full overflow-hidden rounded-xl border border-border text-left"
                 >
                   <RotatingImages images={c.images} />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
                     <div>
-                      <h3 className="text-xl text-ivory md:text-2xl">{c.title}</h3>
-                      <p className="mt-1.5 text-[0.6rem] tracking-[0.26em] text-muted-foreground uppercase">
+                      <h3 className="text-base text-ivory md:text-lg">{c.title}</h3>
+                      <p className="mt-1 text-[0.55rem] tracking-[0.24em] text-muted-foreground uppercase">
                         View gallery
                       </p>
                     </div>
-                    <ArrowUpRight className="size-5 shrink-0 text-gold transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                    <ArrowUpRight className="size-4 shrink-0 text-gold transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
                   </div>
                 </button>
               </CarouselItem>

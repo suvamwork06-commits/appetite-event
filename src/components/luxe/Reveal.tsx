@@ -42,7 +42,10 @@ export function RevealLines({ text, className }: { text: string; className?: str
       viewport={{ once: true, margin: "-60px" }}
     >
       {words.map((word, i) => (
-        <span key={`${word}-${i}`} className="inline-block overflow-hidden align-bottom">
+        <span
+          key={`${word}-${i}`}
+          className="inline-block overflow-hidden align-bottom pb-[0.16em] -mb-[0.16em]"
+        >
           <motion.span
             className="inline-block"
             variants={{

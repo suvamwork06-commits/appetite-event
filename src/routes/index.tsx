@@ -93,18 +93,16 @@ function Hero() {
             <span className="h-px w-12 bg-gold/50" />
           </p>
         </Reveal>
-        <h1 className="mt-8 text-[clamp(2.9rem,9vw,7.5rem)] leading-[0.94] text-ivory">
+        <h1 className="mt-5 text-[clamp(2.9rem,9vw,7.5rem)] leading-[0.94] text-ivory">
           <RevealLines text="Extraordinary Experiences" />
         </h1>
         <Reveal delay={0.35}>
-          <p className="mx-auto mt-10 max-w-3xl font-display text-[clamp(1.35rem,2.6vw,2.1rem)] italic leading-[1.45] text-ivory/90">
-            Where timeless celebrations, couture décor and exquisite cuisine are composed with
-            quiet precision, refined elegance and unmistakable{" "}
-            <span className="text-gold">artistry</span>.
+          <p className="mt-4 font-display text-[clamp(1.15rem,2.3vw,1.8rem)] italic leading-snug text-ivory/90">
+            Crafting Legacies of <span className="text-gold">Celebration.</span>
           </p>
         </Reveal>
         <Reveal delay={0.5}>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a href="#experiences">
               <LuxeButton size="lg" tabIndex={-1}>
                 Discover Experiences

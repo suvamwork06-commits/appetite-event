@@ -94,13 +94,9 @@ function Hero() {
           </p>
         </Reveal>
         <h1 className="mt-5 text-[clamp(2.9rem,9vw,7.5rem)] leading-[0.94] text-ivory">
-          <RevealLines text="Extraordinary Experiences" />
+          <RevealLines text="Crafting Legacies of" />{" "}
+          <RevealLines text="Celebration." className="text-gold" />
         </h1>
-        <Reveal delay={0.35}>
-          <p className="mt-4 font-display text-[clamp(1.15rem,2.3vw,1.8rem)] italic leading-snug text-ivory/90">
-            Crafting Legacies of <span className="text-gold">Celebration.</span>
-          </p>
-        </Reveal>
         <Reveal delay={0.5}>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a href="#experiences">

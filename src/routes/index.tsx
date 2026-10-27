@@ -111,12 +111,6 @@ function Hero() {
         </Reveal>
       </motion.div>
 
-      <motion.div
-        style={{ opacity: fade }}
-        className="absolute bottom-9 left-1/2 -translate-x-1/2 text-[0.62rem] tracking-[0.4em] text-muted-foreground/70 uppercase"
-      >
-        Scroll
-      </motion.div>
     </section>
   );
 }

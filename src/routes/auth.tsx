@@ -17,7 +17,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const [mode, setMode] = useState<"signin" | "forgot">("signin");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -27,19 +27,20 @@ function AuthPage() {
     e.preventDefault();
     setError(null);
     setMessage(null);
+    if (!isAdminEmail(email)) {
+      setError("Wrong admin mail.");
+      return;
+    }
     setLoading(true);
-
     try {
-      if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: window.location.origin },
+      if (mode === "forgot") {
+        const { error } = await supabase.auth.resetPasswordForEmail(email.trim().toLowerCase(), {
+          redirectTo: `${window.location.origin}/reset-password`,
         });
         if (error) throw error;
-        setMessage("Account created. Check your email to confirm, then sign in.");
+        setMessage("A password reset link has been sent to your email.");
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await supabase.auth.signInWithPassword({ email: email.trim().toLowerCase(), password });
         if (error) throw error;
         navigate({ to: "/admin/enquiries" });
       }

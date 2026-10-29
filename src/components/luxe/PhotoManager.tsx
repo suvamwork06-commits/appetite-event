@@ -41,7 +41,10 @@ export function PhotoManager() {
   const handleDelete = async (photo: PortfolioPhoto) => {
     if (!confirm("Delete this photo?")) return;
     const { error } = await supabase.from("portfolio_images").delete().eq("id", photo.id);
-    if (error) return toast.error("Could not delete photo");
+    if (error) {
+      toast.error("Could not delete photo");
+      return;
+    }
     await supabase.storage.from(PORTFOLIO_BUCKET).remove([photo.storage_path]);
     toast.success("Photo deleted");
     refresh();

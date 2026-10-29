@@ -79,7 +79,6 @@ function EventsPage() {
       <TrustedBy />
       <Testimonials />
       <NumbersBand />
-      <Instagram />
       <ClosingCta />
     </>
   );
@@ -321,49 +320,6 @@ function NumbersBand() {
             </div>
           </Reveal>
         ))}
-      </div>
-    </section>
-  );
-}
-
-function Instagram() {
-  return (
-    <section className="bg-surface py-24 md:py-32">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading eyebrow="Instagram" title="@ambient" className="max-w-xl" />
-          <Reveal>
-            <a
-              href={brand.socials[0]!.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline text-[0.7rem] tracking-[0.26em] text-gold uppercase"
-            >
-              Follow the atelier
-            </a>
-          </Reveal>
-        </div>
-
-        <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
-          {instagramFeed.map((src, i) => (
-            <Reveal key={i} delay={(i % 6) * 0.06}>
-              <a
-                href={brand.socials[0]!.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block aspect-square overflow-hidden rounded-md border border-border/70"
-              >
-                <img
-                  src={src}
-                  alt="Ambient event detail"
-                  loading="lazy"
-                  className="size-full object-cover transition-transform duration-[1.3s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-background/0 transition-colors duration-500 group-hover:bg-background/55" />
-              </a>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );

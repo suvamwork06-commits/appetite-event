@@ -8,6 +8,7 @@ import { LuxeButton } from "@/components/luxe/LuxeButton";
 import { Lightbox } from "@/components/luxe/Lightbox";
 import { useQuote } from "@/components/luxe/QuoteModal";
 import { ServiceLogo } from "@/components/luxe/ServiceLogo";
+import { Portfolio, Testimonials } from "@/components/luxe/ShowcaseSections";
 import {
   brand,
   cateringPillars,
@@ -58,8 +59,8 @@ function CateringPage() {
       <CateringHero />
       <MenuExperience />
       <Philosophy />
-      <Reviews />
-      <Gallery />
+      <Testimonials />
+      <Portfolio />
       <Contact />
     </>
   );
@@ -192,85 +193,6 @@ function Philosophy() {
   );
 }
 
-function Reviews() {
-  return (
-    <section className="bg-background py-24 md:py-32">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading eyebrow="Client Reviews" title="Tables remembered" />
-        <div className="mt-16 grid gap-6 md:mt-24 lg:grid-cols-3">
-          {cateringReviews.map((r, i) => (
-            <Reveal key={r.name} delay={i * 0.1}>
-              <article className="clay-card h-full rounded-xl p-9">
-                <div className="flex gap-1 text-gold">
-                  {Array.from({ length: r.rating }).map((_, s) => (
-                    <Star key={s} className="size-3 fill-current" />
-                  ))}
-                </div>
-                <p className="mt-7 font-display text-xl leading-[1.6] text-ivory/90 italic">
-                  “{r.text}”
-                </p>
-                <div className="mt-9 flex items-center gap-4">
-                  <img
-                    src={r.image}
-                    alt={r.name}
-                    loading="lazy"
-                    className="size-12 rounded-full border border-border object-cover"
-                  />
-                  <div>
-                    <p className="text-sm text-ivory">{r.name}</p>
-                    <p className="mt-1 text-[0.64rem] tracking-[0.24em] text-muted-foreground uppercase">
-                      {r.role}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Gallery() {
-  const [index, setIndex] = useState<number | null>(null);
-  const items = foodGallery.map((image, i) => ({ image, title: `Plate ${i + 1}` }));
-
-  return (
-    <section className="bg-surface py-24 md:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading eyebrow="Food Gallery" title="A closer look" />
-        <div className="mt-16 gap-4 md:mt-24 md:columns-2 lg:columns-3 [&>*]:mb-4">
-          {items.map((item, i) => (
-            <Reveal key={i} delay={(i % 3) * 0.07}>
-              <button
-                onClick={() => setIndex(i)}
-                aria-label={`Open image ${i + 1}`}
-                className="group relative block w-full overflow-hidden rounded-lg border border-border/70"
-              >
-                <img
-                  src={item.image}
-                  alt="Luxury catering detail"
-                  loading="lazy"
-                  className="w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.07]"
-                />
-                <div className="absolute inset-0 bg-background/0 transition-colors duration-700 group-hover:bg-background/45" />
-              </button>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-
-      <Lightbox
-        items={items}
-        index={index}
-        onClose={() => setIndex(null)}
-        onIndexChange={setIndex}
-      />
-    </section>
-  );
-}
-
 function Contact() {
   const { open } = useQuote();
 
@@ -323,17 +245,6 @@ function Contact() {
           </div>
         </div>
 
-        <Reveal delay={0.15}>
-          <div className="overflow-hidden rounded-xl border border-border">
-            <iframe
-              title="Appetite location"
-              src={brand.mapEmbed}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-[420px] w-full grayscale-[35%] lg:h-full lg:min-h-[540px]"
-            />
-          </div>
-        </Reveal>
       </div>
     </section>
   );

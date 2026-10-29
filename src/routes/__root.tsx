@@ -122,9 +122,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           email: brand.email,
           address: {
             "@type": "PostalAddress",
-            streetAddress: "21 Camac Street",
+            streetAddress: "1582/1, Rajdanga Main Road, Sarat Park, Kasba, Flat G-4/3, Purba Abasan Apartment - Block DF",
             addressLocality: "Kolkata",
-            postalCode: "700016",
+            postalCode: "700107",
             addressCountry: "IN",
           },
           sameAs: brand.socials.map((s) => s.href),

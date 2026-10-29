@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { LuxeButton } from "@/components/luxe/LuxeButton";
@@ -20,6 +20,11 @@ function ResetPasswordPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Older reset emails point here; forward them to the admin panel with the link details intact.
+  useEffect(() => {
+    window.location.replace(`/auth${window.location.search}${window.location.hash}`);
+  }, []);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,0 +1,2 @@
+GRANT DELETE ON public.enquiries TO authenticated;
+CREATE POLICY "Admin can delete enquiries" ON public.enquiries FOR DELETE TO authenticated USING ((auth.jwt() ->> 'email') = 'subhra@appetiteevent.com');

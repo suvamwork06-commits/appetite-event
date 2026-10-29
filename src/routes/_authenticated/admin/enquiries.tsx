@@ -4,7 +4,7 @@ import { useSuspenseQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { queryOptions } from "@tanstack/react-query";
-import { getEnquiries, updateEnquiry } from "@/lib/enquiries.functions";
+import { deleteEnquiry, getEnquiries, updateEnquiry } from "@/lib/enquiries.functions";
 import { ArrowLeft, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { brand } from "@/lib/content";
@@ -27,31 +27,54 @@ export const Route = createFileRoute("/_authenticated/admin/enquiries")({
   }),
 });
 
-const statusOptions = ["new", "contacted", "qualified", "booked", "archived"] as const;
+const statusOptions = ["new", "contacted", "client_confirmed", "client_declined"] as const;
+const statusLabels: Record<string, string> = {
+  new: "New",
+  contacted: "Contacted",
+  client_confirmed: "Client Confirmed",
+  client_declined: "Client Declined",
+};
 
 function EnquiriesPage() {
   const { data: enquiries } = useSuspenseQuery(enquiriesQueryOptions);
   const updateStatus = useServerFn(updateEnquiry);
+  const removeEnquiry = useServerFn(deleteEnquiry);
   const queryClient = useQueryClient();
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [tab, setTab] = useState<"enquiries" | "photos">("enquiries");
 
-  const handleStatusChange = async (id: string, status: (typeof statusOptions)[number]) => {
-    setUpdatingId(id);
+  const handleStatusChange = async (id: string, value: string) => {
     const previous = queryClient.getQueryData(enquiriesQueryOptions.queryKey);
+    if (value === "delete") {
+      if (!window.confirm("Delete this enquiry permanently?")) return;
+      setUpdatingId(id);
+      queryClient.setQueryData(enquiriesQueryOptions.queryKey, (old) => old?.filter((e) => e.id !== id));
+      try {
+        await removeEnquiry({ data: { id } });
+        toast.success("Enquiry deleted");
+      } catch (err) {
+        queryClient.setQueryData(enquiriesQueryOptions.queryKey, previous);
+        toast.error("Could not delete enquiry.");
+        console.error(err);
+      } finally {
+        setUpdatingId(null);
+      }
+      return;
+    }
+    const status = value as (typeof statusOptions)[number];
+    setUpdatingId(id);
     queryClient.setQueryData(enquiriesQueryOptions.queryKey, (old) =>
       old?.map((e) => (e.id === id ? { ...e, status } : e)),
     );
     try {
       await updateStatus({ data: { id, status } });
-      toast.success(`Status updated to ${status.charAt(0).toUpperCase() + status.slice(1)}`);
+      toast.success(`Status updated to ${statusLabels[status]}`);
     } catch (err) {
       queryClient.setQueryData(enquiriesQueryOptions.queryKey, previous);
       toast.error("Could not update status. Please try again.");
       console.error(err);
     } finally {
       setUpdatingId(null);
-      queryClient.invalidateQueries({ queryKey: enquiriesQueryOptions.queryKey });
     }
   };
 

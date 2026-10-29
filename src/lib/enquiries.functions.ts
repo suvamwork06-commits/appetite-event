@@ -60,11 +60,20 @@ export const updateEnquiry = createServerFn({ method: "POST" })
     z
       .object({
         id: z.string().uuid(),
-        status: z.enum(["new", "contacted", "qualified", "booked", "archived"]),
+        status: z.enum(["new", "contacted", "client_confirmed", "client_declined"]),
       })
       .parse(input),
   )
   .handler(async ({ data, context }) => {
     await updateEnquiryStatus(context.supabase, data.id, data.status);
+    return { success: true };
+  });
+
+export const deleteEnquiry = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) => z.object({ id: z.string().uuid() }).parse(input))
+  .handler(async ({ data, context }) => {
+    const { error } = await context.supabase.from("enquiries").delete().eq("id", data.id);
+    if (error) throw error;
     return { success: true };
   });

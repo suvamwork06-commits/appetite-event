@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { LuxeButton } from "@/components/luxe/LuxeButton";
@@ -14,6 +15,31 @@ export const Route = createFileRoute("/auth")({
     ],
   }),
 });
+
+function PasswordInput({ value, onChange, className }: { value: string; onChange: (v: string) => void; className: string }) {
+  const [show, setShow] = useState(false);
+  return (
+    <div className="relative">
+      <input
+        type={show ? "text" : "password"}
+        required
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={`${className} pr-12`}
+        placeholder="••••••••"
+      />
+      <button
+        type="button"
+        onClick={() => setShow((s) => !s)}
+        aria-label={show ? "Hide password" : "Show password"}
+        className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-muted-foreground transition-colors hover:text-gold"
+      >
+        {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+      </button>
+    </div>
+  );
+}
+
 
 function AuthPage() {
   const [email, setEmail] = useState("");
@@ -139,11 +165,11 @@ function AuthPage() {
             <form onSubmit={handleReset} className="grid gap-5">
               <label className="block">
                 <span className="eyebrow mb-2 block">New password</span>
-                <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className={inputCls} placeholder="••••••••" />
+                <PasswordInput value={password} onChange={setPassword} className={inputCls} />
               </label>
               <label className="block">
                 <span className="eyebrow mb-2 block">Confirm password</span>
-                <input type="password" required value={confirm} onChange={(e) => setConfirm(e.target.value)} className={inputCls} placeholder="••••••••" />
+                <PasswordInput value={confirm} onChange={setConfirm} className={inputCls} />
               </label>
               {error ? (
                 <div className="rounded border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">{error}</div>
@@ -185,14 +211,7 @@ function AuthPage() {
           {mode === "signin" ? (
           <label className="block">
             <span className="eyebrow mb-2 block">Password</span>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="h-12 w-full border border-input bg-background/40 px-4 text-sm text-ivory outline-none placeholder:text-muted-foreground/60 focus:border-gold"
-              placeholder="••••••••"
-            />
+            <PasswordInput value={password} onChange={setPassword} className={inputCls} />
           </label>
           ) : null}
 

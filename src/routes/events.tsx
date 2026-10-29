@@ -19,7 +19,6 @@ import {
 import {
   brand,
   images,
-  instagramFeed,
   services,
   stats,
   testimonials,

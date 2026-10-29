@@ -12,8 +12,6 @@ import { Portfolio, Testimonials } from "@/components/luxe/ShowcaseSections";
 import {
   brand,
   cateringPillars,
-  cateringReviews,
-  foodGallery,
   images,
   menu,
   serviceContacts,

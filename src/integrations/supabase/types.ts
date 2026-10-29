@@ -80,6 +80,27 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_images: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          storage_path: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          storage_path: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          storage_path?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

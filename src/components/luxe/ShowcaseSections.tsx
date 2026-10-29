@@ -11,7 +11,9 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { serviceShowcase, testimonials } from "@/lib/content";
+import { usePortfolioPhotos } from "@/lib/portfolio-photos";
 
 /** Images inside a card crossfade to the next one on a timer. */
 function RotatingImages({ images, interval = 2800 }: { images: string[]; interval?: number }) {
@@ -22,7 +24,7 @@ function RotatingImages({ images, interval = 2800 }: { images: string[]; interva
   }, [images.length, interval]);
 
   return (
-    <div className="relative aspect-square overflow-hidden">
+    <div className="relative aspect-[4/5] overflow-hidden">
       {images.map((src, i) => (
         <img
           key={src}
@@ -43,26 +45,31 @@ export function Portfolio() {
   const [cardIndex, setCardIndex] = useState<number | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
+  const { data: uploaded = [] } = usePortfolioPhotos();
   useEffect(() => {
     if (!api) return;
     const id = setInterval(() => api.scrollNext(), 4000);
     return () => clearInterval(id);
   }, [api]);
 
-  const card = cardIndex === null ? null : serviceShowcase[cardIndex];
+  const cards = serviceShowcase.map((c) => {
+    const custom = uploaded.filter((p) => p.category === c.title).map((p) => p.url);
+    return { ...c, images: custom.length ? custom : c.images };
+  });
+  const card = cardIndex === null ? null : cards[cardIndex];
   const lightboxItems = card
     ? card.images.map((image) => ({ image, title: card.title }))
     : [];
 
   return (
-    <section className="bg-section py-24 md:py-36">
+    <section id="portfolio" className="bg-section py-24 md:py-36">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading eyebrow="Portfolio" title="Selected celebrations" />
 
         <Carousel setApi={setApi} opts={{ align: "start", loop: true }} className="mt-16 md:mt-24">
-          <CarouselContent className="-ml-3">
-            {serviceShowcase.map((c, i) => (
-              <CarouselItem key={c.title} className="pl-3 basis-1/2 sm:basis-1/3 lg:basis-1/5">
+          <CarouselContent className="-ml-4">
+            {cards.map((c, i) => (
+              <CarouselItem key={c.title} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-[38%]">
                 <button
                   onClick={() => {
                     setCardIndex(i);
@@ -156,6 +163,22 @@ export function Testimonials() {
               />
             ))}
           </div>
+        </div>
+        <div className="mt-10 flex justify-end gap-3">
+          <button
+            onClick={() => setActive((a) => (a - 1 + testimonials.length) % testimonials.length)}
+            aria-label="Previous review"
+            className="inline-flex size-12 items-center justify-center border border-border text-ivory transition-colors hover:border-gold hover:bg-gold/10 hover:text-gold"
+          >
+            <ChevronLeft className="size-4" />
+          </button>
+          <button
+            onClick={() => setActive((a) => (a + 1) % testimonials.length)}
+            aria-label="Next review"
+            className="inline-flex size-12 items-center justify-center border border-border text-ivory transition-colors hover:border-gold hover:bg-gold/10 hover:text-gold"
+          >
+            <ChevronRight className="size-4" />
+          </button>
         </div>
       </div>
     </section>

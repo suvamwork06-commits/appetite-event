@@ -104,9 +104,11 @@ function Hero() {
                 Discover Experiences
               </LuxeButton>
             </a>
-            <LuxeButton variant="outline" size="lg" className="gap-3">
-              <Play className="size-3" /> Watch Our Story
-            </LuxeButton>
+            <a href="#portfolio">
+              <LuxeButton variant="outline" size="lg" className="gap-3" tabIndex={-1}>
+                <Play className="size-3" /> Watch Our Story
+              </LuxeButton>
+            </a>
           </div>
         </Reveal>
       </motion.div>

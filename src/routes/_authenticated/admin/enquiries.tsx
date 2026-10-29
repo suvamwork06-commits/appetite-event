@@ -8,6 +8,7 @@ import { getEnquiries, updateEnquiry } from "@/lib/enquiries.functions";
 import { ArrowLeft, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { brand } from "@/lib/content";
+import { PhotoManager } from "@/components/luxe/PhotoManager";
 
 const enquiriesQueryOptions = queryOptions({
   queryKey: ["enquiries"],
@@ -33,6 +34,7 @@ function EnquiriesPage() {
   const updateStatus = useServerFn(updateEnquiry);
   const queryClient = useQueryClient();
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [tab, setTab] = useState<"enquiries" | "photos">("enquiries");
 
   const handleStatusChange = async (id: string, status: (typeof statusOptions)[number]) => {
     setUpdatingId(id);
@@ -59,7 +61,7 @@ function EnquiriesPage() {
         <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="eyebrow">Concierge Admin</p>
-            <h1 className="mt-4 text-4xl text-ivory">Enquiries</h1>
+            <h1 className="mt-4 text-4xl text-ivory">{tab === "enquiries" ? "Enquiries" : "Manage Photos"}</h1>
           </div>
           <div className="flex items-center gap-4">
             <Link
@@ -79,7 +81,25 @@ function EnquiriesPage() {
           </div>
         </div>
 
-        <EnquiriesTable enquiries={enquiries} updatingId={updatingId} onStatusChange={handleStatusChange} />
+        <div className="mb-10 flex gap-2 border-b border-border">
+          {(["enquiries", "photos"] as const).map((t) => (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={`-mb-px border-b-2 px-5 py-3 font-sans text-[0.7rem] tracking-[0.26em] uppercase transition-colors ${
+                tab === t ? "border-gold text-gold" : "border-transparent text-muted-foreground hover:text-ivory"
+              }`}
+            >
+              {t === "enquiries" ? "Enquiries" : "Manage Photos"}
+            </button>
+          ))}
+        </div>
+
+        {tab === "enquiries" ? (
+          <EnquiriesTable enquiries={enquiries} updatingId={updatingId} onStatusChange={handleStatusChange} />
+        ) : (
+          <PhotoManager />
+        )}
 
         <div className="mt-12 text-center text-xs text-muted-foreground">
           <p>

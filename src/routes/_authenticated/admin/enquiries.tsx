@@ -145,7 +145,7 @@ function EnquiriesTable({
 }: {
   enquiries: Awaited<ReturnType<typeof getEnquiries>>;
   updatingId: string | null;
-  onStatusChange: (id: string, status: (typeof statusOptions)[number]) => void;
+  onStatusChange: (id: string, value: string) => void;
 }) {
   if (enquiries.length === 0) {
     return (
@@ -197,15 +197,16 @@ function EnquiriesTable({
                 <td className="px-5 py-4 align-top">
                   <select
                     value={enquiry.status}
-                    onChange={(e) => onStatusChange(enquiry.id, e.target.value as (typeof statusOptions)[number])}
+                    onChange={(e) => onStatusChange(enquiry.id, e.target.value)}
                     disabled={updatingId === enquiry.id}
                     className="h-9 rounded border border-input bg-background px-3 text-sm text-ivory outline-none focus:border-gold"
                   >
                     {statusOptions.map((s) => (
                       <option key={s} value={s}>
-                        {s.charAt(0).toUpperCase() + s.slice(1)}
+                        {statusLabels[s]}
                       </option>
                     ))}
+                    <option value="delete">Delete Enquiry</option>
                   </select>
                 </td>
                 <td className="px-5 py-4 align-top">

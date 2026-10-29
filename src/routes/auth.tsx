@@ -3,6 +3,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { LuxeButton } from "@/components/luxe/LuxeButton";
 import { brand } from "@/lib/content";
+import { isAdminEmail } from "@/lib/admin";
 
 export const Route = createFileRoute("/auth")({
   component: AuthPage,
@@ -75,6 +76,7 @@ function AuthPage() {
             />
           </label>
 
+          {mode === "signin" ? (
           <label className="block">
             <span className="eyebrow mb-2 block">Password</span>
             <input
@@ -86,6 +88,7 @@ function AuthPage() {
               placeholder="••••••••"
             />
           </label>
+          ) : null}
 
           {error ? (
             <div className="rounded border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
@@ -99,19 +102,19 @@ function AuthPage() {
           ) : null}
 
           <LuxeButton type="submit" disabled={loading} className="mt-2 w-full">
-            {loading ? "Please wait…" : mode === "signin" ? "Sign In" : "Create Account"}
+            {loading ? "Please wait…" : mode === "signin" ? "Sign In" : "Send Reset Link"}
           </LuxeButton>
 
           <button
             type="button"
             onClick={() => {
-              setMode(mode === "signin" ? "signup" : "signin");
+              setMode(mode === "signin" ? "forgot" : "signin");
               setError(null);
               setMessage(null);
             }}
             className="text-center text-xs text-muted-foreground transition-colors hover:text-ivory"
           >
-            {mode === "signin" ? "Need an admin account? Create one" : "Already have an account? Sign in"}
+            {mode === "signin" ? "Forgot password?" : "Back to sign in"}
           </button>
         </form>
       </div>

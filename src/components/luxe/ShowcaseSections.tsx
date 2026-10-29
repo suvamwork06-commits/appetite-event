@@ -164,6 +164,22 @@ export function Testimonials() {
             ))}
           </div>
         </div>
+        <div className="mt-10 flex justify-end gap-3">
+          <button
+            onClick={() => setActive((a) => (a - 1 + testimonials.length) % testimonials.length)}
+            aria-label="Previous review"
+            className="inline-flex size-12 items-center justify-center border border-border text-ivory transition-colors hover:border-gold hover:bg-gold/10 hover:text-gold"
+          >
+            <ChevronLeft className="size-4" />
+          </button>
+          <button
+            onClick={() => setActive((a) => (a + 1) % testimonials.length)}
+            aria-label="Next review"
+            className="inline-flex size-12 items-center justify-center border border-border text-ivory transition-colors hover:border-gold hover:bg-gold/10 hover:text-gold"
+          >
+            <ChevronRight className="size-4" />
+          </button>
+        </div>
       </div>
     </section>
   );

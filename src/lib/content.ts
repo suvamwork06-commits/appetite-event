@@ -55,7 +55,8 @@ export const brand = {
   phoneHref: "tel:+919831152888",
   whatsapp: "919831152888",
   email: "info@appetiteevent.com",
-  address: "The Atelier, 21 Camac Street, Kolkata 700016, India",
+  address:
+    "1582/1, Rajdanga Main Road, Sarat Park, Rajdanga, Kasba, Kolkata. Flat G-4/3, Purba Abasan Apartment - Block DF. Kolkata - 700107",
   hours: [
     { day: "Monday — Friday", time: "10:00 — 19:00" },
     { day: "Saturday", time: "11:00 — 17:00" },

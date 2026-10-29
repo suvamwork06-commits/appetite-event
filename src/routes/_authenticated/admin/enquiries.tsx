@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
@@ -40,6 +40,7 @@ function EnquiriesPage() {
   const updateStatus = useServerFn(updateEnquiry);
   const removeEnquiry = useServerFn(deleteEnquiry);
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [tab, setTab] = useState<"enquiries" | "photos">("enquiries");
 
@@ -95,7 +96,12 @@ function EnquiriesPage() {
               Back to site
             </Link>
             <button
-              onClick={() => supabase.auth.signOut()}
+              onClick={async () => {
+                await queryClient.cancelQueries();
+                queryClient.clear();
+                await supabase.auth.signOut();
+                navigate({ to: "/auth", replace: true });
+              }}
               className="inline-flex items-center gap-2 font-sans text-[0.7rem] tracking-[0.26em] text-muted-foreground uppercase transition-colors hover:text-destructive"
             >
               <LogOut className="size-4" />

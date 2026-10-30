@@ -11,7 +11,7 @@ import { Portfolio, Testimonials } from "@/components/luxe/ShowcaseSections";
 import { ServiceLogo } from "@/components/luxe/ServiceLogo";
 import { brand, images, stats, trustedBy } from "@/lib/content";
 
-const TITLE = "Ambient & Appetite — Luxury Event Management & Premium Catering";
+const TITLE = "Appetite Events";
 const DESCRIPTION =
   "A luxury event atelier crafting timeless weddings, galas and private celebrations — and chef-led premium catering. Tell us which experience you would like us to create.";
 

@@ -7,8 +7,12 @@ export const Route = createFileRoute("/reset-password")({
   component: ResetPasswordPage,
   head: () => ({
     meta: [
-      { title: "Reset Password — Ambient & Appetite" },
-      { name: "description", content: "Set a new admin password." },
+      { property: "og:title", content: "Reset Password — Appetite & Ambient" },
+      { property: "og:description", content: "Set a new admin password for Appetite & Ambient." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { title: "Reset Password — Appetite & Ambient" },
+      { name: "description", content: "Set a new admin password for Appetite & Ambient." },
       { name: "robots", content: "noindex" },
     ],
   }),

@@ -42,9 +42,9 @@ const STEP_FIELDS: (keyof QuoteValues)[][] = [
 const STEPS = ["Personal Details", "Event Details", "Investment"];
 
 const EVENT_TYPES = [
+  "Corporate Gala",
   "Luxury Wedding",
   "Destination Wedding",
-  "Corporate Gala",
   "Brand Launch",
   "Private Celebration",
   "Luxury Catering Only",
@@ -125,7 +125,7 @@ function QuoteDialog({ open, onClose }: { open: boolean; onClose: () => void }) 
 
   const buildWhatsappUrl = (values: QuoteValues) => {
     const lines = [
-      "New consultation enquiry — Ambient & Appetite",
+      "New consultation enquiry — Appetite & Ambient",
       "",
       `Name: ${values.name}`,
       `Email: ${values.email}`,

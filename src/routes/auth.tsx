@@ -10,8 +10,12 @@ export const Route = createFileRoute("/auth")({
   component: AuthPage,
   head: () => ({
     meta: [
-      { title: "Admin Sign In — Ambient & Appetite" },
-      { name: "description", content: "Private access for the Ambient & Appetite concierge team." },
+      { property: "og:title", content: "Admin Sign In — Appetite & Ambient" },
+      { property: "og:description", content: "Private access for the Appetite & Ambient concierge team." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { title: "Admin Sign In — Appetite & Ambient" },
+      { name: "description", content: "Private access for the Appetite & Ambient concierge team." },
     ],
   }),
 });

@@ -13,7 +13,7 @@ import { brand, images, stats, trustedBy } from "@/lib/content";
 
 const TITLE = "Appetite Events";
 const DESCRIPTION =
-  "A luxury event atelier crafting timeless weddings, galas and private celebrations — and chef-led premium catering. Tell us which experience you would like us to create.";
+  "A luxury event atelier crafting corporate events, timeless weddings and private celebrations — and chef-led premium catering. Tell us which experience you would like us to create.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,6 +24,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
@@ -73,7 +74,7 @@ function Hero() {
       <motion.img
         style={{ y: imageY }}
         src={images.heroWedding}
-        alt="Candlelit luxury wedding banquet designed by Ambient & Appetite"
+        alt="Candlelit luxury wedding banquet designed by Appetite & Ambient"
         width={1920}
         height={1088}
         className="absolute inset-0 size-full scale-110 object-cover"
@@ -121,15 +122,15 @@ const choices = [
   {
     to: "/events",
     service: "events",
-    label: "Ambient Events",
-    copy: "Weddings, galas and private celebrations produced end to end by a single atelier team.",
+    label: "Ambient Tour and Travels",
+    copy: "Corporate events, weddings and private celebrations produced end to end by a single atelier team.",
     image: images.cardEvents,
     index: "01",
   },
   {
     to: "/catering",
     service: "catering",
-    label: "Appetite",
+    label: "Appetite event management and catering services",
     copy: "Chef-led menus, live counters and silver-service brigades trained to five-star standards.",
     image: images.cardCatering,
     index: "02",
@@ -185,7 +186,7 @@ function ChoiceCard({
       onMouseLeave={() => setHover(false)}
       className="group relative block overflow-hidden rounded-2xl border border-border transition-[box-shadow,border-color] duration-700 hover:border-gold/45 hover:shadow-[0_50px_90px_-50px_oklch(0.784_0.086_84_/_0.3)]"
     >
-      <div className="relative aspect-4/5 overflow-hidden sm:aspect-16/11 lg:aspect-4/5">
+      <div className="relative aspect-3/4 overflow-hidden sm:aspect-16/11 lg:aspect-4/5">
         <motion.img
           src={image}
           alt={label}
@@ -210,9 +211,9 @@ function ChoiceCard({
 
       <div className="absolute inset-x-0 bottom-0 p-7 md:p-11">
         <div className="flex items-end justify-between gap-6">
-          <div>
+          <div className="min-w-0">
             <ServiceLogo service={service} className="mb-5 h-14 w-40" />
-            <h3 className="mt-4 text-[clamp(2rem,3.4vw,3rem)] leading-tight text-ivory" data-index={index}>
+            <h3 className="mt-4 text-2xl leading-tight text-ivory md:text-3xl" data-index={index}>
               {label}
             </h3>
             <p className="mt-4 max-w-sm text-sm leading-[1.85] text-muted-foreground">

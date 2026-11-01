@@ -49,7 +49,7 @@ export const images = {
 };
 
 export const brand = {
-  name: "Ambient & Appetite",
+  name: "Appetite & Ambient",
   monogram: "A&A",
   tagline: "Luxury Event Atelier",
   phone: "+91 98311 52888",
@@ -57,7 +57,7 @@ export const brand = {
   whatsapp: "919831152888",
   email: "info@appetiteevent.com",
   address:
-    "1582/1, Rajdanga Main Road, Sarat Park, Rajdanga, Kasba, Kolkata. Flat G-4/3, Purba Abasan Apartment - Block DF. Kolkata - 700107",
+    "G-4/3, Purba Abasan Block DF, 1582/1 Rajdanga Main Road, Kolkata - 700 107",
   hours: [
     { day: "Monday — Friday", time: "10:00 — 19:00" },
     { day: "Saturday", time: "11:00 — 17:00" },
@@ -74,7 +74,7 @@ export const brand = {
 /** Blank enquiry form sent when a visitor taps a WhatsApp button directly. */
 export const whatsappBlankFormUrl = `https://wa.me/${brand.whatsapp}?text=${encodeURIComponent(
   [
-    "New consultation enquiry — Ambient & Appetite",
+    "New consultation enquiry — Appetite & Ambient",
     "",
     "Name: ",
     "Email: ",
@@ -90,12 +90,12 @@ export const whatsappBlankFormUrl = `https://wa.me/${brand.whatsapp}?text=${enco
 
 export const services = [
   {
-    title: "Wedding Planning",
-    text: "From the first conversation to the final farewell, a single atelier team choreographs every hour of your celebration.",
-  },
-  {
     title: "Corporate Events",
     text: "Boardroom precision with couture presentation — galas, awards evenings and executive retreats.",
+  },
+  {
+    title: "Wedding Planning",
+    text: "From the first conversation to the final farewell, a single atelier team choreographs every hour of your celebration.",
   },
   {
     title: "Destination Weddings",
@@ -152,17 +152,17 @@ export const timeline = [
 ];
 
 export const featured = [
-  { title: "The Emerald Wedding", place: "Udaipur, India", image: portfolio1 },
   { title: "Corporate Gala", place: "Marina Bay, Singapore", image: portfolio2 },
+  { title: "The Emerald Wedding", place: "Udaipur, India", image: portfolio1 },
+  { title: "Destination Wedding", place: "Lake Como, Italy", image: portfolio3 },
   { title: "Luxury Birthday", place: "Private Estate, Alibaug", image: portfolio5 },
   { title: "Brand Launch", place: "Dubai Opera District", image: portfolio4 },
   { title: "Fashion Event", place: "Milan, Italy", image: portfolio6 },
-  { title: "Destination Wedding", place: "Lake Como, Italy", image: portfolio3 },
 ];
 
 export const portfolio = [
-  { title: "Vows by the Sea", category: "Destination Wedding", image: portfolio1 },
   { title: "The Emerald Gala", category: "Corporate", image: portfolio2 },
+  { title: "Vows by the Sea", category: "Destination Wedding", image: portfolio1 },
   { title: "Couture Bridal", category: "Editorial", image: portfolio3 },
   { title: "Gold Geometry", category: "Brand Launch", image: portfolio4 },
   { title: "Candlelit Twelve", category: "Private Dining", image: portfolio5 },
@@ -173,25 +173,25 @@ export const portfolio = [
 
 /** Smaller rotating service-category cards used in the Portfolio section. */
 export const serviceShowcase = [
-  { title: "Luxurious Weddings", images: [portfolio1, portfolio3, heroWedding] },
   { title: "Corporate Events", images: [portfolio2, portfolio4] },
+  { title: "Luxurious Weddings", images: [portfolio1, portfolio3, heroWedding] },
   { title: "Birthday Parties", images: [portfolio5, about2, about3] },
   { title: "Floral & Decor", images: [ctaFloral, cardEvents] },
   { title: "Catering Services", images: [cardCatering, menuLive, menuDessert] },
 ];
 
 export const stats = [
-  { value: 500, suffix: "+", label: "Events Produced" },
   { value: 200, suffix: "+", label: "Corporate Events" },
   { value: 100, suffix: "+", label: "Luxury Weddings" },
+  { value: 500, suffix: "+", label: "Events Produced" },
   { value: 15, suffix: "+", label: "Years of Trust" },
 ];
 
 /** Revolving milestones strip on the home page. */
 export const trustedBy = [
-  "500+ Events Produced",
   "200+ Corporate Events",
   "100+ Luxury Weddings",
+  "500+ Events Produced",
   "15+ Years of Trust",
 ];
 

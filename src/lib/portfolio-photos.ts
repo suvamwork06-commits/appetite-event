@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { serviceShowcase } from "@/lib/content";
 
 export type PortfolioPhoto = { id: string; category: string; storage_path: string; url: string };
 
@@ -25,4 +26,13 @@ export async function fetchPortfolioPhotos(): Promise<PortfolioPhoto[]> {
 
 export function usePortfolioPhotos() {
   return useQuery({ queryKey: ["portfolio-photos"], queryFn: fetchPortfolioPhotos });
+}
+
+/** Services and Portfolio always resolve the same uploaded-or-starter galleries. */
+export function usePortfolioGalleries() {
+  const { data: uploaded = [] } = usePortfolioPhotos();
+  return serviceShowcase.map((category) => {
+    const custom = uploaded.filter((photo) => photo.category === category.title).map((photo) => photo.url);
+    return { ...category, images: custom.length ? custom : category.images };
+  });
 }

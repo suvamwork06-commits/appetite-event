@@ -154,10 +154,10 @@ export const timeline = [
 export const featured = [
   { title: "Corporate Gala", place: "Marina Bay, Singapore", image: portfolio2 },
   { title: "The Emerald Wedding", place: "Udaipur, India", image: portfolio1 },
+  { title: "Destination Wedding", place: "Lake Como, Italy", image: portfolio3 },
   { title: "Luxury Birthday", place: "Private Estate, Alibaug", image: portfolio5 },
   { title: "Brand Launch", place: "Dubai Opera District", image: portfolio4 },
   { title: "Fashion Event", place: "Milan, Italy", image: portfolio6 },
-  { title: "Destination Wedding", place: "Lake Como, Italy", image: portfolio3 },
 ];
 
 export const portfolio = [

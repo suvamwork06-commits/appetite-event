@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep service identities centralized in the shared content library and display their CDN-hosted supplied artwork through ServiceLogo, so each page uses the correct business identity.
+- Derive Services and Portfolio from the shared serviceShowcase categories and use usePortfolioGalleries for photo selection, so both show the same admin uploads or starter photos.

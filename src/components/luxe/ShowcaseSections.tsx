@@ -12,8 +12,8 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { serviceShowcase, testimonials } from "@/lib/content";
-import { usePortfolioPhotos } from "@/lib/portfolio-photos";
+import { testimonials } from "@/lib/content";
+import { usePortfolioGalleries } from "@/lib/portfolio-photos";
 
 /** Images inside a card crossfade to the next one on a timer. */
 function RotatingImages({ images, interval = 2800 }: { images: string[]; interval?: number }) {
@@ -45,17 +45,13 @@ export function Portfolio() {
   const [cardIndex, setCardIndex] = useState<number | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
-  const { data: uploaded = [] } = usePortfolioPhotos();
+  const cards = usePortfolioGalleries();
   useEffect(() => {
     if (!api) return;
     const id = setInterval(() => api.scrollNext(), 4000);
     return () => clearInterval(id);
   }, [api]);
 
-  const cards = serviceShowcase.map((c) => {
-    const custom = uploaded.filter((p) => p.category === c.title).map((p) => p.url);
-    return { ...c, images: custom.length ? custom : c.images };
-  });
   const card = cardIndex === null ? null : cards[cardIndex];
   const lightboxItems = card
     ? card.images.map((image) => ({ image, title: card.title }))

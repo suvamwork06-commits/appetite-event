@@ -9,6 +9,9 @@ import { Marquee } from "@/components/luxe/Marquee";
 import { useQuote } from "@/components/luxe/QuoteModal";
 import { ServiceLogo } from "@/components/luxe/ServiceLogo";
 import { Portfolio, Testimonials } from "@/components/luxe/ShowcaseSections";
+import { Lightbox } from "@/components/luxe/Lightbox";
+import { Button } from "@/components/ui/button";
+import { usePortfolioGalleries } from "@/lib/portfolio-photos";
 import {
   Carousel,
   CarouselContent,
@@ -218,32 +221,52 @@ function WhyUs() {
 }
 
 function Services() {
+  const cards = usePortfolioGalleries();
+  const [category, setCategory] = useState<string | null>(null);
+  const [imageIndex, setImageIndex] = useState(0);
+  const selected = cards.find((card) => card.title === category);
+  const lightboxItems = selected?.images.map((image) => ({ image, title: selected.title })) ?? [];
+
   return (
-    <section className="bg-background py-24 md:py-36">
+    <section id="services" className="bg-background py-24 md:py-36">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
           eyebrow="Services"
           title="Everything an evening requires"
-          intro="Eight disciplines, one production team, a single point of contact from first sketch to final farewell."
+          intro="One production team, a single point of contact from first sketch to final farewell."
         />
         <div className="mt-16 grid gap-5 md:mt-24 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s, i) => (
+          {cards.map((s, i) => (
             <Reveal key={s.title} delay={(i % 4) * 0.08}>
-              <motion.div
+              <Button asChild variant="ghost" className="block h-full w-full whitespace-normal rounded-xl p-0 text-left font-normal hover:bg-transparent">
+              <motion.button
+                type="button"
+                aria-label={`Open ${s.title} gallery`}
+                onClick={() => {
+                  setCategory(s.title);
+                  setImageIndex(0);
+                }}
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="glass-panel sheen relative h-full overflow-hidden rounded-xl p-8 transition-colors duration-500 hover:border-gold/50"
+                className="glass-panel sheen relative h-full w-full overflow-hidden rounded-xl p-8 transition-colors duration-500 hover:border-gold/50"
               >
                 <p className="eyebrow">{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="mt-6 text-2xl leading-snug text-ivory">{s.title}</h3>
                 <p className="mt-4 text-[0.82rem] leading-[1.9] text-muted-foreground">
                   {s.text}
                 </p>
-              </motion.div>
+              </motion.button>
+              </Button>
             </Reveal>
           ))}
         </div>
       </div>
+      <Lightbox
+        items={lightboxItems}
+        index={selected && imageIndex < lightboxItems.length ? imageIndex : null}
+        onClose={() => setCategory(null)}
+        onIndexChange={setImageIndex}
+      />
     </section>
   );
 }

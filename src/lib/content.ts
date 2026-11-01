@@ -88,41 +88,6 @@ export const whatsappBlankFormUrl = `https://wa.me/${brand.whatsapp}?text=${enco
   ].join("\n"),
 )}`;
 
-export const services = [
-  {
-    title: "Corporate Events",
-    text: "Boardroom precision with couture presentation — galas, awards evenings and executive retreats.",
-  },
-  {
-    title: "Wedding Planning",
-    text: "From the first conversation to the final farewell, a single atelier team choreographs every hour of your celebration.",
-  },
-  {
-    title: "Destination Weddings",
-    text: "Palaces, vineyards, private islands. Logistics handled quietly so the romance stays in view.",
-  },
-  {
-    title: "Luxury Decor",
-    text: "Bespoke sets, imported blooms and custom joinery built for a single unforgettable night.",
-  },
-  {
-    title: "Photography",
-    text: "Editorial-trained photographers and cinematographers who document without ever intruding.",
-  },
-  {
-    title: "Entertainment",
-    text: "String ensembles, world-touring DJs, aerialists and curated performance programming.",
-  },
-  {
-    title: "Celebrity Management",
-    text: "Discreet artist liaison, riders, security and privacy protocols managed end to end.",
-  },
-  {
-    title: "Luxury Catering",
-    text: "Chef-led menus, live counters and service brigades trained to five-star standards.",
-  },
-];
-
 export const whyUs = [
   {
     title: "One Atelier, One Standard",
@@ -173,12 +138,14 @@ export const portfolio = [
 
 /** Smaller rotating service-category cards used in the Portfolio section. */
 export const serviceShowcase = [
-  { title: "Corporate Events", images: [portfolio2, portfolio4] },
-  { title: "Luxurious Weddings", images: [portfolio1, portfolio3, heroWedding] },
-  { title: "Birthday Parties", images: [portfolio5, about2, about3] },
-  { title: "Floral & Decor", images: [ctaFloral, cardEvents] },
-  { title: "Catering Services", images: [cardCatering, menuLive, menuDessert] },
+  { title: "Corporate Events", text: "Boardroom precision with couture presentation — galas, awards evenings and executive retreats.", images: [portfolio2, portfolio4] },
+  { title: "Luxurious Weddings", text: "From the first conversation to the final farewell, a single atelier team choreographs every hour of your celebration.", images: [portfolio1, portfolio3, heroWedding] },
+  { title: "Birthday Parties", text: "Private celebrations composed around your guests, with thoughtful decor, entertainment and every detail of the day.", images: [portfolio5, about2, about3] },
+  { title: "Floral & Decor", text: "Bespoke sets, imported blooms and custom joinery built for a single unforgettable night.", images: [ctaFloral, cardEvents] },
+  { title: "Catering Services", text: "Chef-led menus, live counters and service brigades trained to five-star standards.", images: [cardCatering, menuLive, menuDessert] },
 ];
+
+export const services = serviceShowcase.map(({ title, text }) => ({ title, text }));
 
 export const stats = [
   { value: 200, suffix: "+", label: "Corporate Events" },

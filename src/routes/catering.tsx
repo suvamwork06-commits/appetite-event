@@ -20,7 +20,7 @@ import {
 
 const TITLE = "Luxury Catering — Appetite";
 const DESCRIPTION =
-  "Chef-led luxury catering: wedding buffets, Royal Bengali, continental and Italian menus, live counters, patisserie and a dedicated bar programme.";
+  "Chef-led luxury catering for corporate events and weddings: wedding buffets, Royal Bengali, continental and Italian menus, live counters, patisserie and a dedicated bar programme.";
 
 export const Route = createFileRoute("/catering")({
   head: () => ({
@@ -31,6 +31,7 @@ export const Route = createFileRoute("/catering")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: "/catering" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/catering" }],
     scripts: [

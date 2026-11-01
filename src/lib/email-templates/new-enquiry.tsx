@@ -156,7 +156,7 @@ const Email = (props: Props) => {
               paddingTop: "18px",
             }}
           >
-            Ambient & Appetite — Luxury Event Atelier
+            Appetite & Ambient — Luxury Event Atelier
             <br />
             Review this enquiry in your admin dashboard.
           </Text>

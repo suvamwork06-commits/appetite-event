@@ -28,7 +28,7 @@ export function Footer() {
               {name.toUpperCase()}
             </p>
             <p className="mt-5 max-w-sm text-sm leading-[1.9] text-muted-foreground">
-              Ambient Events and Appetite catering, producing weddings, galas and private
+              Appetite catering and Ambient Events, producing corporate events, weddings and private
               celebrations for families and houses who expect quiet perfection.
             </p>
           </div>

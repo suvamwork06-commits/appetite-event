@@ -29,7 +29,7 @@ import {
 
 const TITLE = "Luxury Event Management — Ambient";
 const DESCRIPTION =
-  "Celebrity weddings, destination celebrations and high-end corporate galas, designed and produced end to end by the Ambient team.";
+  "High-end corporate events, celebrity weddings and destination celebrations, designed and produced end to end by the Ambient team.";
 
 export const Route = createFileRoute("/events")({
   head: () => ({
@@ -40,6 +40,7 @@ export const Route = createFileRoute("/events")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: "/events" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/events" }],
     scripts: [
@@ -113,8 +114,8 @@ function EventsHero() {
         </h1>
         <Reveal delay={0.3}>
           <p className="mt-8 max-w-lg text-[0.98rem] leading-[1.95] text-muted-foreground">
-            Fifteen years of private weddings, destination celebrations and
-            corporate galas — produced quietly, to a single standard.
+            Fifteen years of corporate events, private weddings and
+            destination celebrations — produced quietly, to a single standard.
           </p>
         </Reveal>
       </div>

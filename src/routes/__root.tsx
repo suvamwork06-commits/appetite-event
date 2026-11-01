@@ -81,11 +81,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ambient & Appetite — Luxury Event Atelier" },
+      { title: "Appetite & Ambient — Luxury Event Atelier" },
       {
         name: "description",
         content:
-          "Ambient & Appetite is a luxury event atelier crafting weddings, galas and private celebrations with precision, elegance and artistry.",
+          "Appetite & Ambient is a luxury event atelier crafting corporate events, weddings and private celebrations with precision, elegance and artistry.",
       },
       { name: "author", content: brand.name },
       { name: "theme-color", content: "#081A16" },
@@ -122,7 +122,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           email: brand.email,
           address: {
             "@type": "PostalAddress",
-            streetAddress: "1582/1, Rajdanga Main Road, Sarat Park, Kasba, Flat G-4/3, Purba Abasan Apartment - Block DF",
+            streetAddress: "G-4/3, Purba Abasan Block DF, 1582/1 Rajdanga Main Road",
             addressLocality: "Kolkata",
             postalCode: "700107",
             addressCountry: "IN",

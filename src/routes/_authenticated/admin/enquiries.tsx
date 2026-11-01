@@ -21,8 +21,12 @@ export const Route = createFileRoute("/_authenticated/admin/enquiries")({
     context.queryClient.ensureQueryData(enquiriesQueryOptions),
   head: () => ({
     meta: [
-      { title: "Enquiries Admin — Ambient & Appetite" },
-      { name: "description", content: "Manage consultation enquiries for Ambient & Appetite." },
+      { property: "og:title", content: "Enquiries Admin — Appetite & Ambient" },
+      { property: "og:description", content: "Manage consultation enquiries for Appetite & Ambient." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { title: "Enquiries Admin — Appetite & Ambient" },
+      { name: "description", content: "Manage consultation enquiries for Appetite & Ambient." },
     ],
   }),
 });

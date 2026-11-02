@@ -29,11 +29,11 @@ export const Route = createFileRoute("/catering")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:url", content: "/catering" },
+      { property: "og:url", content: "https://appetiteevent.com/catering" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/catering" }],
+    links: [{ rel: "canonical", href: "https://appetiteevent.com/catering" }],
     scripts: [
       {
         type: "application/ld+json",

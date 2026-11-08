@@ -26,7 +26,7 @@ import ctaFloral from "@/assets/cta-floral.jpg";
 import sc_corporate1 from "@/assets/showcase-corporate-1.jpg";
 import sc_corporate2 from "@/assets/showcase-corporate-2.jpg";
 import sc_corporate3 from "@/assets/showcase-corporate-3.jpg";
-import sc_wedding1 from "@/assets/showcase-wedding-1-hand-real.jpg";
+import sc_wedding1 from "@/assets/showcase-wedding-1-clean.png";
 import sc_wedding2 from "@/assets/showcase-wedding-2.jpg";
 import sc_wedding3 from "@/assets/showcase-wedding-3.jpg";
 import sc_birthday1 from "@/assets/showcase-birthday-1.jpg";

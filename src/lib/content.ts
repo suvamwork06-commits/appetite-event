@@ -23,6 +23,21 @@ import menuLive from "@/assets/menu-live.jpg";
 import menuDessert from "@/assets/menu-dessert.jpg";
 import menuMocktail from "@/assets/menu-mocktail.jpg";
 import ctaFloral from "@/assets/cta-floral.jpg";
+import sc_corporate1 from "@/assets/showcase-corporate-1.jpg";
+import sc_corporate2 from "@/assets/showcase-corporate-2.jpg";
+import sc_corporate3 from "@/assets/showcase-corporate-3.jpg";
+import sc_wedding1 from "@/assets/showcase-wedding-1.jpg";
+import sc_wedding2 from "@/assets/showcase-wedding-2.jpg";
+import sc_wedding3 from "@/assets/showcase-wedding-3.jpg";
+import sc_birthday1 from "@/assets/showcase-birthday-1.jpg";
+import sc_birthday2 from "@/assets/showcase-birthday-2.jpg";
+import sc_birthday3 from "@/assets/showcase-birthday-3.jpg";
+import sc_decor1 from "@/assets/showcase-decor-1.jpg";
+import sc_decor2 from "@/assets/showcase-decor-2.jpg";
+import sc_decor3 from "@/assets/showcase-decor-3.jpg";
+import sc_catering1 from "@/assets/showcase-catering-1.jpg";
+import sc_catering2 from "@/assets/showcase-catering-2.jpg";
+import sc_catering3 from "@/assets/showcase-catering-3.jpg";
 // Bundled with the site (not CDN pointers) so logos load on any host, including Vercel.
 import ambientLogo from "@/assets/ambient-logo-transparent.png";
 import appetiteLogo from "@/assets/appetite-logo-transparent.png";
@@ -138,11 +153,11 @@ export const portfolio = [
 
 /** Smaller rotating service-category cards used in the Portfolio section. */
 export const serviceShowcase = [
-  { title: "Corporate Events", text: "Boardroom precision with couture presentation — galas, awards evenings and executive retreats.", images: [portfolio2, portfolio4] },
-  { title: "Luxurious Weddings", text: "From the first conversation to the final farewell, a single atelier team choreographs every hour of your celebration.", images: [portfolio1, portfolio3, heroWedding] },
-  { title: "Birthday Parties", text: "Private celebrations composed around your guests, with thoughtful decor, entertainment and every detail of the day.", images: [portfolio5, about2, about3] },
-  { title: "Floral & Decor", text: "Bespoke sets, imported blooms and custom joinery built for a single unforgettable night.", images: [ctaFloral, cardEvents] },
-  { title: "Catering Services", text: "Chef-led menus, live counters and service brigades trained to five-star standards.", images: [cardCatering, menuLive, menuDessert] },
+  { title: "Corporate Events", text: "Boardroom precision with couture presentation — galas, awards evenings and executive retreats.", images: [sc_corporate1, sc_corporate2, sc_corporate3] },
+  { title: "Luxurious Weddings", text: "From the first conversation to the final farewell, a single atelier team choreographs every hour of your celebration.", images: [sc_wedding1, sc_wedding2, sc_wedding3] },
+  { title: "Birthday Parties", text: "Private celebrations composed around your guests, with thoughtful decor, entertainment and every detail of the day.", images: [sc_birthday1, sc_birthday2, sc_birthday3] },
+  { title: "Floral & Decor", text: "Bespoke sets, imported blooms and custom joinery built for a single unforgettable night.", images: [sc_decor1, sc_decor2, sc_decor3] },
+  { title: "Catering Services", text: "Chef-led menus, live counters and service brigades trained to five-star standards.", images: [sc_catering1, sc_catering2, sc_catering3] },
 ];
 
 export const services = serviceShowcase.map(({ title, text }) => ({ title, text }));
